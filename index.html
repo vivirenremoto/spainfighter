@@ -274,21 +274,29 @@
         var dead = document.getElementById('bg_dead');
         music1.volume = 0.2;
 
-        if (screen_width > 500) {
-            $('#player1').css('left', screen_width_half - player1_width);
-            $('#player2').css('left', screen_width_half);
-        } else {
-            $('#player1').css('left', screen_width_half - player1_width);
-            $('#player2').css('left', screen_width_half);
+
+
+        $(window).resize(function () {
+            centerElements();
+        });
+
+
+        function centerElements() {
+
+            screen_height = $(document).height();
+            screen_width = $(document).width() + 50;
+            screen_width_half = screen_width / 2;
+
+            if (screen_width > 500) {
+                $('#player1').css('left', screen_width_half - player1_width);
+                $('#player2').css('left', screen_width_half);
+            } else {
+                $('#player1').css('left', screen_width_half - player1_width);
+                $('#player2').css('left', screen_width_half);
+            }
+
+
         }
-
-
-
-
-
-
-
-        loop_cabeza();
 
         function loop_cabeza() {
             $('#player1 .cabeza').animate({
@@ -453,6 +461,13 @@
                 }, 5);
             }
         };
+
+
+
+        centerElements();
+
+
+        loop_cabeza();
     </script>
 
 
