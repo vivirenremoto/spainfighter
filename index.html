@@ -17,6 +17,7 @@
     <link rel="prefetch" href="static/punch1.mp3" />
     <link rel="prefetch" href="static/punch2.mp3" />
     <link rel="prefetch" href="static/dead.mp3" />
+    <link rel="prefetch" href="static/win.mp3" />
     <link rel="prefetch" href="static/bg.png" />
     <link rel="prefetch" href="static/gal_brazo.png" />
     <link rel="prefetch" href="static/gal_cuerpo.png" />
@@ -269,6 +270,10 @@
         <source src="static/dead.mp3" type="audio/mp3">
     </audio>
 
+    <audio id="bg_win">
+        <source src="static/win.mp3" type="audio/mp3">
+    </audio>
+
 
     <script>
         var is_finish = false;
@@ -285,6 +290,7 @@
         var punch1 = document.getElementById('bg_punch1');
         var punch2 = document.getElementById('bg_punch2');
         var dead = document.getElementById('bg_dead');
+        var win = document.getElementById('bg_win');
         music1.volume = 0.2;
 
 
@@ -316,13 +322,18 @@
 
 
             jQuery.getScript('https://cdn.jsdelivr.net/gh/mathusummut/confetti.js/confetti.min.js', function () {
+
+
+
                 confetti.start();
 
                 setTimeout(function () {
                     confetti.stop();
 
 
+
                     setTimeout(function () {
+                        win.play();
                         $('#btn_retry').show();
                     }, 2000);
 
@@ -403,17 +414,17 @@
 
 
                 $('#player2').css('margin-left', 0).animate({
-                    'margin-left': '-=100'
+                    'margin-left': '-=120'
                 }, 100);
 
 
                 $('#player2 .brazo').css('margin-left', 0).animate({
-                    'margin-left': '-=100'
+                    'margin-left': '-=40'
                 }, 200, function () {
 
 
                     $('#player2').animate({
-                        'margin-left': '+=100'
+                        'margin-left': 0
                     }, 200);
 
                     $('#player1 .cabeza').addClass('shake');
@@ -463,7 +474,7 @@
 
 
                 $('#player1').css('margin-left', 0).animate({
-                    'margin-left': '+=100'
+                    'margin-left': '+=120'
                 }, 100);
 
                 $('#player1 .brazo').css('margin-left', 180).animate({
@@ -472,7 +483,7 @@
 
 
                     $('#player1').animate({
-                        'margin-left': '-=100'
+                        'margin-left': 0
                     }, 200);
 
                     $('#player2 .cabeza').addClass('shake');
