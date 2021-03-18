@@ -41,6 +41,17 @@
 <body>
 
 
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5RYZ00EP8Q"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-5RYZ00EP8Q');
+    </script>
+
     <style>
         * {
             font-family: 'VT323', monospace;
@@ -300,9 +311,9 @@
 
         }
 
-        function endGame(){
+        function endGame() {
 
-            
+
 
             jQuery.getScript('https://cdn.jsdelivr.net/gh/mathusummut/confetti.js/confetti.min.js', function () {
                 confetti.start();
@@ -381,7 +392,7 @@
                         $("#player1").animate({ bottom: player2_width * -1 }, 1000).rotate(-90, -0.5, 0);
 
                         endGame();
-                        
+
 
                     }, 500);
                 }
@@ -429,7 +440,7 @@
 
 
                         endGame();
-                        
+
 
                     }, 500);
                 }
